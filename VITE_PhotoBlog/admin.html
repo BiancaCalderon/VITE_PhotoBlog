@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Admin Panel</title>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+
+  <!-- Formulario para crear una nueva publicación -->
+  <form id="create-post-form">
+    <label for="title">Title:</label>
+    <input type="text" id="title" required><br>
+    <label for="description">Description:</label>
+    <textarea id="description" required></textarea><br>
+    <label for="banner">Banner:</label>
+    <input type="text" id="banner" required><br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" required><br>
+    <label for="tags">Tags:</label>
+    <input type="text" id="tags" required><br>
+    <button type="submit">Create Post</button>
+  </form>
+
+  <!-- Formulario para actualizar una publicación -->
+  <form id="update-post-form" style="display: none;">
+    <label for="update-title">Title:</label>
+    <input type="text" id="update-title" required><br>
+    <label for="update-description">Description:</label>
+    <textarea id="update-description" required></textarea><br>
+    <label for="update-banner">Banner:</label>
+    <input type="text" id="update-banner" required><br>
+    <label for="update-tags">Tags:</label>
+    <input type="text" id="update-tags" required><br>
+    <button type="submit">Update Post</button>
+  </form>
+
+  <!-- Lista de publicaciones existentes -->
+  <ul id="posts-list"></ul>
+
+  <script src="admin.js"></script>
+</body>
+</html>
