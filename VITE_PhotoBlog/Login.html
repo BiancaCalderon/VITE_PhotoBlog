@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+  <aside class="login">
+    <h1 class="title">Welcome!</h1>
+    <div class="error-message"></div>
+    <label class="input-container">
+      <span>Username</span>
+      <input type="text" id="username" placeholder="Enter your username">
+    </label>
+    <label class="input-container">
+      <span>Password</span>
+      <input type="password" id="password" placeholder="Enter your password">
+    </label>
+    <button id="login-btn">Login</button>
+  </aside>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script>
+    const loginBtn = document.getElementById('login-btn');
+    const errorMessage = document.querySelector('.error-message');
+
+    loginBtn.addEventListener('click', async () => {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Calcula el hash md5 de la contraseña
+      const passwordHash = CryptoJS.MD5(password).toString();
+
+      const body = {
+        username: username,
+        password: passwordHash
+      };
+
+      const fetchOptions = {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      try {
+        const response = await fetch('http://localhost:5173/login', fetchOptions);
+        const data = await response.json();
+
+        if (response.ok) {
+          console.log('Success! Token is:', data.access_token);
+          // Almacenar el token de acceso en el almacenamiento local
+          localStorage.setItem('accessToken', data.access_token);
+          // Redirigir a la página de administrador
+          window.location.href = '/admin.html';
+        } else {
+          errorMessage.textContent = 'Incorrect user or password';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        errorMessage.textContent = 'An error occurred while logging in';
+      }
+    });
+  </script>
+</body>
+</html>

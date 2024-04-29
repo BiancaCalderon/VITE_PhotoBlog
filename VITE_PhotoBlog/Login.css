@@ -1,0 +1,77 @@
+/* Login form styles */
+.login {
+    border: 1px solid #16878c;
+    border-radius: 5px;
+    width: 400px; /* Ajusta el ancho del formulario */
+    max-width: 80%;
+    background-color: white;
+    padding: 60px 40px; /* Ajusta el padding para hacerlo más alto */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+    /* Centering the form */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Title styles */
+  .title {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #16878c;
+  }
+  
+  /* Error message styles */
+  .error-message {
+    color: #e34850;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  /* Input container styles */
+  .input-container {
+    width: 100%;
+    margin-bottom: 20px; /* Ajusta el margen inferior para más espacio */
+  }
+  
+  /* Label styles */
+  .input-container span {
+    display: block;
+    margin-bottom: 5px;
+    color: #16878c;
+  }
+  
+  /* Input styles */
+  .input-container input {
+    width: 100%;
+    height: 50px; /* Ajusta la altura de los campos de entrada */
+    padding: 12px; /* Ajusta el relleno para más espacio */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-container input:focus {
+    border-color: #16878c;
+  }
+  
+  /* Button styles */
+  #login-btn {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #16878c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #login-btn:hover {
+    background-color: #126e75;
+  }
+  
