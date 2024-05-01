@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const createPostForm = document.getElementById('create-post-form');
-    const updatePostForm = document.getElementById('update-post-form'); // Agregar referencia al formulario de actualización
+    const updatePostForm = document.getElementById('update-post-form'); 
     const postsList = document.getElementById('posts-list');
   
     // Función para crear una nueva publicación
@@ -147,6 +147,25 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error creating post:', error);
       }
     });
+
+    // Event listener para enviar el formulario de actualización de publicación
+  updatePostForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const postId = document.getElementById('update-post-id').value; // Agregar un campo oculto para almacenar el ID del post
+    const title = document.getElementById('update-title').value;
+    const description = document.getElementById('update-description').value;
+    const banner = document.getElementById('update-banner').value;
+    const tags = document.getElementById('update-tags').value;
+
+    try {
+      await updatePost(postId, title, banner, description, tags);
+      updatePostForm.reset();
+      updatePostForm.style.display = 'none'; // Ocultar el formulario de actualización después de enviarlo
+      await displayPosts();
+    } catch (error) {
+      console.error('Error updating post:', error);
+    }
+  });
   
     // Mostrar las publicaciones existentes al cargar la página
     displayPosts();
