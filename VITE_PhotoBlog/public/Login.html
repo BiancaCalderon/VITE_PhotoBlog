@@ -39,7 +39,7 @@
         }
       };
       try {
-        const response = await fetch('https://api.tiburoncin.lat/22272/admin/login', fetchOptions);
+        const response = await fetch('https://api.tiburoncin.lat/22272/posts', fetchOptions);
         if (response.ok) {
           const { token } = await response.json();
           localStorage.setItem('token', token); // Guardar el token en el almacenamiento local
