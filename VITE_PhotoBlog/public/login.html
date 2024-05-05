@@ -32,6 +32,7 @@
     username: username,
     password: md5Password
   };
+  console.log(md5Password);
   try {
     const response = await fetch('https://api.tiburoncin.lat/22272/admin/login', {
       method: 'POST',
